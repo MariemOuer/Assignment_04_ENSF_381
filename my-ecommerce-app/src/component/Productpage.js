@@ -53,7 +53,7 @@ const ProductPage = () => {
       <Header />
       <main>
         {/* ProductList component */}
-        <ProductList products={productsData} onAddToCart={addToCart} />
+        <ProductList products={productsData} addToCart={addToCart} />
         {/* Cart component */}
         <Cart 
           cartItems={cartItems} 

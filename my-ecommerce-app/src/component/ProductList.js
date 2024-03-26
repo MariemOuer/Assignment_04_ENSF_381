@@ -11,7 +11,7 @@ const ProductList = ({ addToCart }) => {
             <ProductItem 
                 key={product.id} // Key is set to product id for React's reconciliation process
                 product={product} // Passing product data as a prop to ProductItem
-                onAddToCart={() => addToCart(product)} // Callback function to add product to cart
+                addToCart={() => addToCart(product)} // Corrected: passing addToCart function
             />
         ));
     };
