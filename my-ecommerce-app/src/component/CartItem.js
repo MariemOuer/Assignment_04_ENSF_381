@@ -18,26 +18,26 @@ const CartItem = ({ item, removeFromCart }) => {
 
     // Render the cart item.
     return (
-        <div className="cart-item">
+        <div className="item">
             {/* Displaying the image of the item */}
-            <img src={image} alt={name} className="cart-item-image" />
+            <img src={image} alt={name} className="image" />
 
             {/* Container for the item details */}
-            <div className="cart-item-details">
+            <div className="details">
                 {/* Displaying the name of the product */}
-                <p className="cart-item-name">{name}</p>
+                <p className="name">{name}</p>
 
                 {/* Displaying the price of the product */}
-                <p className="cart-item-price">Price: ${price}</p>
+                <p className="price">Price: ${price}</p>
 
                 {/* Displaying the quantity of the product */}
-                <p className="cart-item-quantity">Quantity: {quantity}</p>
+                <p className="quantity">Quantity: {quantity}</p>
 
                 {/* Displaying the total price for this item */}
-                <p className="cart-item-total">Total: ${totalPrice}</p>
+                <p className="total">Total: ${totalPrice}</p>
 
                 {/* Button to remove the item from the cart */}
-                <button className="cart-item-remove-button" onClick={handleRemoveClick}>Remove</button>
+                <button className="remove-button" onClick={handleRemoveClick}>Remove</button>
             </div>
         </div>
     );

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'; // Importing the Header component
 import ProductList from './ProductList'; // Importing the ProductList component
-import Cart from './Cart'; // Importing the Cart component
+import Cart from './Cart'; 
 import Footer from './Footer'; // Importing the Footer component
-import productsData from '../data/products'; // Importing product data
+import productsData from '../data/products';  
 
 // ProductPage component
 const ProductPage = () => {
