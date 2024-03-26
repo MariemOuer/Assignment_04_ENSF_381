@@ -1,11 +1,12 @@
 import React from "react";
 
 function Footer() {
-  return (
-    <footer>
-      <p>&copy; Copyright Skeek</p>
-    </footer>
-  );
-};
+    const textStyle = {textAlign: 'left'};
+    return (
+        <footer>
+        <p style={textStyle}>&copy; Copyright Skeek</p>
+        </footer>
+    );
+    };
 
-export default Footer;
+    export default Footer;

@@ -2,21 +2,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
-    return (
-        <header className="header">
-            <div className="row1">
-                <img src="/images/logo.png" alt="Logo" width="50px" />
-                <div>Skeek</div>
-            </div>
+function Header(){
+    const header = {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    }
 
-            <nav>
+    return(
+        <header>
+            <div className="header" style={header}>
+            <img style={{height: '55px'}} src='/images/logo.png' className='logo' alt="company logo" />
+            <h1 style={{fontWeight: 'normal', fontSize: '18px'}}>Skeek</h1>
+            </div>
+            <nav className="navbar" style={header}>
                 <Link to="/">Home</Link>
                 <Link to="/products">Products</Link>
                 <Link to="/login">Login</Link>
             </nav>
         </header>
-    );
-};
+    );};
 
 export default Header;
+

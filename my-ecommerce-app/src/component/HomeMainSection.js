@@ -18,12 +18,8 @@ const HomeMainSection = () => {
     <section>
       <div className="about-us">
         <h2>About Us</h2>
-        <p>At Skeek, we are more than just an online sneaker shop; we are a passionate community of sneaker enthusiasts 
-                dedicated to bringing you the latest and greatest in sneaker fashion. Born out of a shared love for kicks and 
-                an unwavering commitment to authenticity, Skeek is your go-to destination for all things sneaker-related.
-                Founded with the vision of curating a diverse collection of sneakers that caters to every style and taste, Skeek 
-                has evolved into a hub where sneaker culture meets cutting-edge fashion. Our journey began with a simple idea – to create an 
-                online space where sneakerheads, fashionistas, and casual enthusiasts alike could explore, discover, and shop the hottest kicks on the market.</p>
+        <p>Welcome to our online store! Learn more about our story and commitment to your satisfaction. 
+        We are passionate about providing exceptional customer service.</p>
 
         <Link to="/products" className="shop-now-btn">
           <input type="submit" value="Shop Now" />
@@ -33,9 +29,9 @@ const HomeMainSection = () => {
         <h2>Customer Reviews</h2>
         {randomReviews.map((review, index) => (
           <div key={index} className="review">
-            <p className='reviewerName'>{review.customerName}</p>
-            <p className='reviewerContent'>{review.reviewContent}</p>
-            <div className='reviewerRating'>Rating: {"⭐".repeat(review.stars)}</div>
+            <p>{review.customerName}</p>
+            <p>{review.reviewContent}</p>
+            <div>Rating: {"⭐".repeat(review.stars)}</div>
           </div>
         ))}
       </div>
