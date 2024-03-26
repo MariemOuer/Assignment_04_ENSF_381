@@ -2,7 +2,7 @@ import React from 'react';
 import CartItem from './CartItem'; // Importing the CartItem component
 
 // Cart component
-const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
+const Cart = ({ cartItems, updateCartQuantity, removeFromCart }) => {
 
   // Function to handle quantity change for cart items
   const changeQuantity = (productId, isIncrement) => {
@@ -14,7 +14,7 @@ const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
     if (updatedQuantity > 0) {
       updateCartQuantity(productId, updatedQuantity); // Update quantity in the cart
     } else {
-      decreaseFromCart(productId); // Remove item from cart if quantity becomes zero
+      removeFromCart(productId); // Remove item from cart if quantity becomes zero
     }
   };
 
@@ -26,6 +26,7 @@ const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
     <CartItem
       key={item.id}
       item={item}
+      removeFromCart={removeFromCart} // Pass removeFromCart function to CartItem
       onDecrease={() => changeQuantity(item.id, false)} // Decrease quantity event handler
       onIncrease={() => changeQuantity(item.id, true)} // Increase quantity event handler
     />

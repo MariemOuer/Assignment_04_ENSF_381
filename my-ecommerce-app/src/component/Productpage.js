@@ -58,7 +58,7 @@ const ProductPage = () => {
         <Cart 
           cartItems={cartItems} 
           onUpdateCartQty={updateCartQuantity} 
-          onRemoveFromCart={removeFromCart}
+          removeFromCart={removeFromCart}
         />
       </main>
       {/* Footer component */}

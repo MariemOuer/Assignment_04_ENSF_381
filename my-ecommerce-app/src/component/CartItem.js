@@ -3,7 +3,7 @@ import './styles.css';
 
 
 // This component represents a single cart item in the shopping cart.
-const CartItem = ({ item, onRemoveFromCart }) => {
+const CartItem = ({ item, removeFromCart }) => {
     // Destructuring to extract necessary properties from the item.
     const { name, price, quantity, image } = item;
 
@@ -13,7 +13,7 @@ const CartItem = ({ item, onRemoveFromCart }) => {
     // Function to handle the removal of an item from the cart.
     // If the quantity is 1, it will remove the item entirely.
     const handleRemoveClick = () => {
-        onRemoveFromCart(item.id, quantity === 1);
+        removeFromCart(item.id, quantity === 1);
     };
 
     // Render the cart item.
