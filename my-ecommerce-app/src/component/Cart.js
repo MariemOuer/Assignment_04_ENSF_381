@@ -1,31 +1,37 @@
 import React from 'react';
-import CartItem from './CartItem';
+import CartItem from './CartItem'; // Importing the CartItem component
 
+// Cart component
 const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
 
+  // Function to handle quantity change for cart items
   const changeQuantity = (productId, isIncrement) => {
     const targetItem = cartItems.find(item => item.id === productId);
     if (!targetItem) return;
 
+    // Calculate updated quantity based on whether it's an increment or decrement
     const updatedQuantity = isIncrement ? targetItem.quantity + 1 : targetItem.quantity - 1;
     if (updatedQuantity > 0) {
-      updateCartQuantity(productId, updatedQuantity);
+      updateCartQuantity(productId, updatedQuantity); // Update quantity in the cart
     } else {
-      decreaseFromCart(productId);
+      decreaseFromCart(productId); // Remove item from cart if quantity becomes zero
     }
   };
 
+  // Function to calculate total price of items in the cart
   const cartCalculateTotal = () => cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
 
+  // Function to render cart items
   const cartItemsRender = () => cartItems.map(item => (
     <CartItem
       key={item.id}
       item={item}
-      onDecrease={() => changeQuantity(item.id, false)}
-      onIncrease={() => changeQuantity(item.id, true)}
+      onDecrease={() => changeQuantity(item.id, false)} // Decrease quantity event handler
+      onIncrease={() => changeQuantity(item.id, true)} // Increase quantity event handler
     />
   ));
 
+  // Render the Cart component
   return (
     <div className="cart" style={cartStyle}>
       <h2 className="cart-heading">Shopping Cart</h2>
@@ -40,6 +46,7 @@ const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
   );
 };
 
+// Styles for the cart component
 const cartStyle = {
   width: '30%', 
   padding: '1rem', 
@@ -52,4 +59,4 @@ const cartStyle = {
   textAlign: 'left'
 };
 
-export default Cart;
+export default Cart; // Exporting the Cart component
