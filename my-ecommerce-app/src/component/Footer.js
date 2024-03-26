@@ -1,18 +1,11 @@
-import React from 'react';
-import './styles.css';
+import React from "react";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="site-footer">  
-      <div className="footer-content">  
-        <p className="footer-text">  
-          &copy; {new Date().getFullYear()} Company Name. All rights reserved.
-        </p>
-        <p className="footer-extra-info">
-        </p>
-      </div>
+    <footer>
+      <p>&copy; Copyright Skeek</p>
     </footer>
   );
-}
+};
 
 export default Footer;
