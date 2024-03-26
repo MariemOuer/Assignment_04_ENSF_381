@@ -1,0 +1,55 @@
+import React from 'react';
+import CartItem from './CartItem';
+
+const Cart = ({ cartItems, updateCartQuantity, decreaseFromCart }) => {
+
+  const changeQuantity = (productId, isIncrement) => {
+    const targetItem = cartItems.find(item => item.id === productId);
+    if (!targetItem) return;
+
+    const updatedQuantity = isIncrement ? targetItem.quantity + 1 : targetItem.quantity - 1;
+    if (updatedQuantity > 0) {
+      updateCartQuantity(productId, updatedQuantity);
+    } else {
+      decreaseFromCart(productId);
+    }
+  };
+
+  const cartCalculateTotal = () => cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
+
+  const cartItemsRender = () => cartItems.map(item => (
+    <CartItem
+      key={item.id}
+      item={item}
+      onDecrease={() => changeQuantity(item.id, false)}
+      onIncrease={() => changeQuantity(item.id, true)}
+    />
+  ));
+
+  return (
+    <div className="cart" style={cartStyle}>
+      <h2 className="cart-heading">Shopping Cart</h2>
+      {cartItems.length === 0 ? <p className="cart-empty-message">Your cart is empty</p> : 
+      <>
+        {cartItemsRender()}
+        <div className="cart-total">
+          <strong>Total: </strong>${cartCalculateTotal()}
+        </div>
+      </>}
+    </div>
+  );
+};
+
+const cartStyle = {
+  width: '30%', 
+  padding: '1rem', 
+  marginLeft: 'auto', 
+  position: 'absolute', 
+  right: '0', 
+  top: '6rem', 
+  fontSize: '25px', 
+  marginBottom: '1rem', 
+  textAlign: 'left'
+};
+
+export default Cart;
